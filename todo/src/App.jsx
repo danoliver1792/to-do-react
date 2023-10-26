@@ -38,12 +38,21 @@ function App() {
 
   setTodos(newTodos);
   };
+
+  // funcao para remover tarefas
+  const removeTodo = (id) => {
+    const newTodos = [...todos];
+    const filteredTodos = newTodos.filter(todo => todo.id !== id? todo : null);
+
+    setTodos(filteredTodos);
+  };
+
   return <div className="app">
     <h1>Lista de Tarefas</h1>
     <div className="todo-list">
       {/* percorrendo todo array e exibindo cada item do to-do com map */}
       {todos.map((todo) => (
-          <Todo key={todo.id} todo={todo}/>
+          <Todo key={todo.id} todo={todo} removeTodo={removeTodo}/>
         ))}
     </div>
     <TodoForm addTodo={addTodo} />
