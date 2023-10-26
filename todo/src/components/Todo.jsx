@@ -12,8 +12,8 @@ const Todo = ({ todo }) => {
 
         {/* div para separar os botoes */}
         <div>
-            <button>Completar</button>
-            <button>Deletar</button>
+            <button className="complete">Completar</button>
+            <button className="remove">Deletar</button>
         </div>
         </div>
   )

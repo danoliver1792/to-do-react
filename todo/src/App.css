@@ -57,3 +57,11 @@ input, select {
   border-radius: 3px;
   width: 100%;
 }
+
+.complete {
+  background-color: #5CB85C;
+}
+
+.remove {
+  background-color: #D9534F;
+}
