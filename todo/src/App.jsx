@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Todo from "./components/Todo";
 import './App.css';
 
 function App() {
@@ -29,20 +30,7 @@ function App() {
     <div className="todo-list">
       {/* percorrendo todo array e exibindo cada item do to-do com map */}
       {todos.map((todo) => (
-          <div className="todo">
-            <div className="content">
-              <p>{todo.text}</p>
-              <p className="category">
-                ({todo.category})
-              </p>
-            </div>
-
-            {/* div para separar os botoes */}
-            <div>
-              <button>Completar</button>
-              <button>Deletar</button>
-            </div>
-          </div>
+          <Todo todo={todo}/>
         ))}
     </div>
   </div>
