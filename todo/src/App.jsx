@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Todo from "./components/Todo";
 import TodoForm from './components/TodoForm';
+import Search from './components/Search';
 import './App.css';
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
       isCompleted: false,
     }
   ]);
+
+  const [search, setSearch] = useState("");
 
   // funcao para atribuir nova tarefa
   const addTodo = (text, category) => {
@@ -55,11 +58,10 @@ function App() {
 
   return <div className="app">
     <h1>Lista de Tarefas</h1>
+    <Search search={search} setSearch={setSearch} />
     <div className="todo-list">
       {/* percorrendo todo array e exibindo cada item do to-do com map */}
-      {todos.map((todo) => (
-          <Todo key={todo.id} todo={todo} removeTodo={removeTodo} completeTodo={completeTodo} />
-        ))}
+      {todos.filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase())).map((todo) => (<Todo key={todo.id} todo={todo} removeTodo={removeTodo} completeTodo={completeTodo} />))}
     </div>
     <TodoForm addTodo={addTodo} />
   </div>
